@@ -5,6 +5,7 @@ const express = require("express");
 const app = express();
 
 const notFoundMiddleware = require("./middlewares/not-found");
+const errorHandlerMiddleware = require("./middlewares/error-handler");
 
 app.use(express.json());
 
@@ -13,6 +14,7 @@ app.get("/", (req, res) => {
 });
 
 app.use(notFoundMiddleware);
+app.use(errorHandlerMiddleware);
 
 const port = process.env.PORT || 3000;
 const start = async () => {
