@@ -1,0 +1,16 @@
+{
+    "name": "jobs-api-backend",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "nodemon app.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/MohamadHajHassan/jobs-api-backend.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC"
+}
