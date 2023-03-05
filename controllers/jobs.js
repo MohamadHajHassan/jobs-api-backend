@@ -6,8 +6,11 @@ const createJob = async (req, res) => {
     const job = await Job.create(req.body);
     res.status(StatusCodes.CREATED).json({ job });
 };
-const getAllJobs = (req, res) => {
-    res.send("get all jobs!");
+const getAllJobs = async (req, res) => {
+    const jobs = await Job.find({ createdBy: req.user.userID }).sort(
+        "createdAt"
+    );
+    res.status(StatusCodes.OK).json({ count: jobs.length, jobs });
 };
 const getJob = (req, res) => {
     res.send("get single job!");
