@@ -13,6 +13,13 @@ const errorHandler = (err, req, res, next) => {
         customError.statusCode = 400;
     }
 
+    if (err.name === "ValidationError") {
+        customError.msg = Object.values(err.errors)
+            .map(item => item.message)
+            .join(",");
+        customError.statusCode = 400;
+    }
+
     return res.status(customError.statusCode).json({ msg: customError.msg });
 };
 
